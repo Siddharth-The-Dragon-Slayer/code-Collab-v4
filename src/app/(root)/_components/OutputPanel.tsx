@@ -80,7 +80,7 @@ function OutputPanel() {
               <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-800/50 ring-1 ring-gray-700/50 mb-4">
                 <Clock className="w-6 h-6" />
               </div>
-              <p className="text-center">Run your code to see the output here...</p>
+              <p className="text-center">You gotta run the code first duh</p>
             </div>
           )}
         </div>
