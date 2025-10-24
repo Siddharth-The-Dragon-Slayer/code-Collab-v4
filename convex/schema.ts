@@ -42,4 +42,48 @@ export default defineSchema({
     .index("by_user_id", ["userId"])
     .index("by_snippet_id", ["snippetId"])
     .index("by_user_id_and_snippet_id", ["userId", "snippetId"]),
+
+  collaborationRooms: defineTable({
+    roomId: v.string(), // unique room identifier
+    title: v.string(),
+    language: v.string(),
+    code: v.string(),
+    createdBy: v.string(), // userId
+    createdByName: v.string(),
+    isActive: v.boolean(),
+    lastActivity: v.number(),
+  }).index("by_room_id", ["roomId"])
+    .index("by_created_by", ["createdBy"])
+    .index("by_active", ["isActive"]),
+
+  roomParticipants: defineTable({
+    roomId: v.string(),
+    userId: v.string(),
+    userName: v.string(),
+    joinedAt: v.number(),
+    lastSeen: v.number(),
+    cursorPosition: v.optional(v.object({
+      line: v.number(),
+      column: v.number(),
+    })),
+    isActive: v.boolean(),
+  }).index("by_room_id", ["roomId"])
+    .index("by_user_id", ["userId"])
+    .index("by_room_and_user", ["roomId", "userId"]),
+
+  codeChanges: defineTable({
+    roomId: v.string(),
+    userId: v.string(),
+    userName: v.string(),
+    changeType: v.union(v.literal("insert"), v.literal("delete"), v.literal("replace")),
+    position: v.object({
+      startLine: v.number(),
+      startColumn: v.number(),
+      endLine: v.number(),
+      endColumn: v.number(),
+    }),
+    content: v.string(),
+    timestamp: v.number(),
+  }).index("by_room_id", ["roomId"])
+    .index("by_timestamp", ["timestamp"]),
 });

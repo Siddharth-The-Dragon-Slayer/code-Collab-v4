@@ -15,7 +15,7 @@ import {
   CheckCircle,
   Sparkles
 } from 'lucide-react';
-import LiquidEther from '@/components/LiquidEther';
+
 
 const features = [
   {
@@ -41,8 +41,8 @@ const features = [
 ];
 
 const stats = [
-  { label: "Active Users", value: "10K+" },
-  { label: "Code Snippets", value: "50K+" },
+  { label: "Active Users", value: "3+" },
+  { label: "Code Snippets", value: "50+" },
   { label: "Languages", value: "15+" },
   { label: "Uptime", value: "99.9%" }
 ];
@@ -56,17 +56,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0a0a0f] via-[#1a1a2e] to-[#0a0a0f] relative overflow-hidden">
-      {/* Liquid Ether Background */}
+      {/* Background Effects */}
       <div className="absolute inset-0 opacity-30">
-        <LiquidEther
-          colors={['#5227FF', '#FF9FFC', '#B19EEF', '#00D4FF']}
-          mouseForce={25}
-          cursorSize={120}
-          autoDemo={true}
-          autoSpeed={0.3}
-          autoIntensity={1.8}
-          resolution={0.6}
-        />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 animate-pulse"></div>
       </div>
 
       {/* Gradient Overlays */}
@@ -158,6 +150,8 @@ export default function Home() {
                     Start Coding Now
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
+
+
 
                   <Link
                     href="/snippets"
@@ -260,7 +254,7 @@ export default function Home() {
               </h2>
 
               <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-                Join thousands of developers who are already building amazing things together.
+                Join developers who are already building amazing things together.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -275,7 +269,7 @@ export default function Home() {
 
                 <div className="flex items-center gap-2 text-gray-400">
                   <CheckCircle className="w-5 h-5 text-green-400" />
-                  No credit card required
+                  Fully Free
                 </div>
               </div>
             </div>
